@@ -1,0 +1,1019 @@
+/* General Styles */
+:root {
+    --primary-color: #ff6347; /* Tomato red */
+    --secondary-color: #ffa500; /* Orange */
+    --accent-color: #4caf50; /* Green */
+    --text-color: #333;
+    --background-color: #fff8dc; /* Cornsilk */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 30%, var(--secondary-color) 100%);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+/* Background image container */
+.header-bg-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40%;  /* Takes up 40% of the header width */
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;  /* Makes it fade */
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+}
+
+/* Make sure all content stays above the background image */
+.logo, nav, .auth-buttons, #message-container, section {
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    background-image: url('C:\Users\nguye\Desktop\2024\2024 Fall\data management\burgers boro\hinh.jfif'); /* Add a subtle burger pattern background */
+    opacity: 1;
+    z-index: 0;
+}
+
+header .logo {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+header h1:hover {
+    transform: scale(1.05);
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Section - Full Width */
+.page-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.main-content {
+    flex: 1 1 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.cart-sidebar {
+    flex: 1 1 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        flex-wrap: nowrap;
+    }
+    
+    .main-content {
+        flex: 3;
+        margin-bottom: 0;
+    }
+    
+    .cart-sidebar {
+        flex: 1;
+    }
+}
+
+
+/* Restaurant Information Section */
+.restaurant-info {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.restaurant-info .info h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.restaurant-info .info p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Burger Links Section */
+.burger-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    padding: 50px 20px;
+    background-color: var(--background-color);
+}
+
+.link-box {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.link-box:hover {
+    transform: translateY(-10px);
+}
+
+.link-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.link-box a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.link-box a:hover {
+    color: var(--primary-color);
+}
+
+/* Shop Items Styling */
+.shop-items {
+    padding: 40px;
+    background-color: var(--background-color);
+}
+
+.shop-items h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 10px;
+}
+
+.item-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.item-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-card h3 {
+    font-size: 1.4rem;
+    margin: 15px;
+    color: var(--primary-color);
+}
+
+.item-card p {
+    margin: 0 15px 15px;
+    color: var(--text-color);
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 0 15px 15px;
+    color: var(--accent-color);
+}
+
+.item-card form {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+    align-items: center;
+}
+
+.item-card input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.item-card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.item-card button:hover {
+    background-color: var(--secondary-color);
+}
+
+
+
+
+
+/* Footer Section */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.footer-top div {
+    margin-bottom: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: var(--secondary-color);
+}
+
+.footer-bottom {
+    background-color: rgba(0,0,0,0.1);
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .burger-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 30%, var(--secondary-color) 100%);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('burger-pattern.png'); /* Add a subtle burger pattern background */
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.logo {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.logo p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Navigation Styles */
+nav {
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    margin-top: 20px;
+    position: relative;
+    z-index: 10; /* Ensure buttons are above other elements */
+}
+
+.auth-buttons button {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative; /* Ensure the button is positioned */
+    z-index: 1; /* Ensure the button is above the background */
+}
+
+.auth-buttons button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Ensure no other elements are overlapping */
+header {
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    z-index: -1; /* Place the background pattern behind other elements */
+}
+
+/* Add this to ensure all clickable elements in the header are accessible */
+header * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Message Container */
+#message-container {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Sign-Up and Login Sections */
+.signup-section,
+.login-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.signup-section h2,
+.login-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-section form,
+.login-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-section label,
+.login-section label {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.signup-section input,
+.login-section input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-section button,
+.login-section button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-section button:hover,
+.login-section button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Account Section */
+.account-section {
+    background-color: var(--background-color); /* Light background color */
+    color: var(--text-color); /* Dark text color */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.account-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.account-section p {
+    margin-bottom: 10px;
+    color: var(--text-color); /* Ensure text is visible */
+}
+
+#resetPasswordBtn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#resetPasswordBtn:hover {
+    background-color: var(--secondary-color);
+}
+
+#resetPasswordSection {
+    margin-top: 20px;
+}
+
+#resetPasswordSection h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+#resetPasswordForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#resetPasswordForm input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: var(--text-color); /* Ensure input text is visible */
+    background-color: white; /* Light background for input */
+}
+
+#resetPasswordForm button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#resetPasswordForm button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+
+    .logo p {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .auth-buttons button {
+        margin: 10px 5px;
+    }
+}
+
+/* Membership Section */
+.membership {
+    background-color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.membership h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.membership ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.membership ul li {
+    margin-bottom: 10px;
+}
+
+/* Upcoming Events Section */
+.events {
+    background-color: var(--background-color);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.events h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.event {
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.event h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.event p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Connect Section */
+.connect {
+    background-color: var(--background-color);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.connect h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.connect p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.contact-item p {
+    margin: 0;
+}
+
+
+
+
+
+
+/* Admin button */
+.admin-section {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+.admin-login-btn {
+    background: transparent;
+    border: 2px solid #ff6b6b;  /* Thicker border with a distinct color */
+    color: #ff6b6b;             /* Text color matching the border */
+    padding: 8px 20px;          /* Slightly larger padding */
+    cursor: pointer;
+    font-weight: bold;          /* Make text bold */
+    font-size: 14px;           /* Specific font size */
+    border-radius: 4px;         /* Rounded corners */
+    text-transform: uppercase;  /* Uppercase text */
+    letter-spacing: 1px;       /* Spaced out letters */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+}
+
+.admin-login-btn:hover {
+    background-color: rgba(255, 107, 107, 0.1);  /* Slight background on hover */
+    border-color: #ff8787;      /* Lighter border on hover */
+    color: #ff8787;             /* Lighter text on hover */
+}
+
+.admin-logout-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: transparent;
+    border: 2px solid #ff4444;  /* Red border for logout */
+    color: #ff4444;             /* Red text */
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.admin-logout-btn:hover {
+    background-color: rgba(255, 68, 68, 0.1);
+    border-color: #ff6666;
+    color: #ff6666;
+}
+
+/* Keep your existing styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Added subtle shadow */
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;               /* Softer color for close button */
+    transition: color 0.3s;    /* Smooth transition for hover */
+}
+
+.close:hover {
+    color: #ff4444;           /* Red color on hover */
+}
+
+.add-new-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+    min-height: 200px;        /* Minimum height for better visibility */
+    transition: all 0.3s ease;
+}
+
+.add-new-item:hover {
+    border-color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.05);
+}
+
+.add-item-button {
+    text-align: center;
+}
+
+.add-item-button span {
+    font-size: 48px;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.add-item-button p {
+    color: #666;
+    margin-top: 10px;
+}
+
+.add-new-item:hover .add-item-button span {
+    color: #ff6b6b;
+}
+
+.delete-item-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.delete-item-btn:hover {
+    background-color: #ff6666;
+}
+
+#addItemForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#addItemForm input,
+#addItemForm textarea,
+#addItemForm select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#addItemForm input:focus,
+#addItemForm textarea:focus,
+#addItemForm select:focus {
+    border-color: #ff6b6b;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1);
+}
+
+#addItemForm button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#addItemForm button:hover {
+    background-color: #ff8787;
+}
